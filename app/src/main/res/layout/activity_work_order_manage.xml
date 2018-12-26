@@ -10,12 +10,15 @@
 
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="vertical" android:paddingBottom="10dp"
-                  android:background="#5CACEE">
+                  android:background="#5CACEE"
+    >
         <LinearLayout
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
             <ImageView
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
                     android:src="@drawable/ic_back"
@@ -26,8 +29,9 @@
                       android:text="@string/order_manage"
                       android:layout_gravity="center"
                       android:gravity="center"
-                      android:textSize="14sp"
+                      android:textSize="16sp"
                       android:textColor="#ffffff"
+
                       android:layout_marginRight="50dp" android:layout_marginEnd="50dp"/>
 
 
@@ -36,7 +40,10 @@
                       android:orientation="horizontal"
                       android:paddingLeft="5dp"
                       android:paddingRight="5dp"
+                      android:background="#ffffff"
                       android:gravity="center_vertical"
+                      android:layout_marginLeft="10dp"
+                      android:layout_marginRight="10dp"
                       android:layout_gravity="center_vertical"
 
         >
@@ -61,10 +68,12 @@
                     android:paddingEnd="10dp" android:paddingStart="10dp"/>
 
             <ImageView
+                    android:paddingLeft="10dp"
+                    android:background="?android:attr/selectableItemBackground"
                     android:layout_width="wrap_content" android:layout_height="match_parent"
                     android:src="@drawable/ic_search"
-                    android:background="#ffffff"
                     android:paddingRight="10dp"
+                    android:clickable="true"
                     android:paddingEnd="10dp" tools:ignore="RtlSymmetry"/>
 
         </LinearLayout>
