@@ -7,30 +7,40 @@
         tools:context=".workordermanage.view.WorkOrderManage"
         android:orientation="vertical"
         android:background="#ffffff">
-    <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
 
-    >
-        <ImageView
-                android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/ic_back"
-                android:padding="10dp"
-                android:contentDescription="@string/back"/>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="vertical" android:paddingBottom="10dp"
+                  android:background="#5CACEE">
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp">
+            <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/ic_back"
+                    android:padding="10dp"
+                    android:contentDescription="@string/back"/>
 
-        <TextView android:layout_width="match_parent" android:layout_height="match_parent"
-                  android:text="@string/order_manage"
-                  android:layout_gravity="center"
-                  android:gravity="center"
-                  android:textSize="14sp"
-                  android:layout_marginEnd="50dp" android:layout_marginRight="50dp"/>
+            <TextView android:layout_width="match_parent" android:layout_height="match_parent"
+                      android:text="@string/order_manage"
+                      android:layout_gravity="center"
+                      android:gravity="center"
+                      android:textSize="14sp"
+                      android:textColor="#ffffff"
+                      android:layout_marginEnd="50dp" android:layout_marginRight="50dp"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:background="@drawable/corner_white_25radius"
+                      android:layout_marginLeft="5dp" android:layout_marginRight="5dp"
+                      android:paddingLeft="10dp" android:paddingRight="10dp"
+                      android:paddingTop="2dp" android:paddingBottom="2dp">
+
+
+
+        </LinearLayout>
+
     </LinearLayout>
-    <LinearLayout android:layout_width="match_parent" android:layout_height="50dp"
-                  android:background="@drawable/corner_gray_25radius"
-                  android:layout_marginLeft="5dp" android:layout_marginRight="5dp">
 
-    </LinearLayout>
     <ListView android:layout_width="match_parent" android:layout_height="match_parent"
               android:id="@+id/orderManage_list">
     </ListView>
