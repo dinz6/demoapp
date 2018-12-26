@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:orientation="horizontal"
+              android:background="@drawable/corner_white_25radius"
+              android:layout_margin="5dp"
+              android:paddingTop="15dp" android:paddingBottom="15dp">
+
+    <android.support.v7.widget.AppCompatCheckBox
+            android:layout_marginLeft="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="20dp"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:layout_marginStart="20dp"/>
+
+    <LinearLayout android:layout_marginLeft="20dp"
+                  android:orientation="vertical"
+                  android:paddingRight="20dp"
+                  android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:layout_marginStart="20dp" android:paddingEnd="20dp" tools:ignore="RtlSymmetry">
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="工单号码"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="A10000000"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="服务类型"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="上门服务流程"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="服务项目"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="助洁-衣物洗涤"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="居民姓名"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="李翠平"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="联系电话"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="13512344321"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="服务地址"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="经开区黄河街道泰和社区雅兰国际花园6栋302室"/>
+        </LinearLayout>
+
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="服务时间"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="2018-12-26"/>
+        </LinearLayout>
+        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:orientation="horizontal" android:layout_marginBottom="5dp"
+        >
+            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                      android:textSize="14sp"
+                      android:layout_gravity="start"
+                      android:text="订单状态"/>
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                      android:gravity="end"
+                      android:textSize="14sp"
+                      android:layout_marginLeft="20dp"
+                      android:text="待派单"/>
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

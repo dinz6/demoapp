@@ -1,18 +1,32 @@
 package com.manage.demoapp.workordermanage.model;
 
+import android.content.Context;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import com.manage.demoapp.R;
+
+import java.util.List;
 
 public class OrderAdapter extends BaseAdapter {
+
+    private List<Order> list;
+    private LayoutInflater layoutInflater;
+
+    public OrderAdapter(List<Order> list, Context context) {
+        this.list = list;
+        layoutInflater = LayoutInflater.from(context);
+    }
+
     @Override
     public int getCount() {
-        return 0;
+        return 5;
     }
 
     @Override
     public Object getItem(int i) {
-        return null;
+        return list.get(i);
     }
 
     @Override
@@ -22,6 +36,8 @@ public class OrderAdapter extends BaseAdapter {
 
     @Override
     public View getView(int i, View view, ViewGroup viewGroup) {
-        return null;
+        View v = layoutInflater.inflate(R.layout.order_item, null);
+
+        return v;
     }
 }
