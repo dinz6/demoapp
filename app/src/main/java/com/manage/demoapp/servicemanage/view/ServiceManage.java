@@ -12,15 +12,17 @@ import butterknife.ButterKnife;
 import cn.qqtheme.framework.picker.OptionPicker;
 import com.manage.demoapp.R;
 import com.manage.demoapp.helper.PickerHelper;
-import com.manage.demoapp.workordermanage.model.OrderAdapter;
+import com.manage.demoapp.servicemanage.model.ServiceAdapter;
 
 public class ServiceManage extends AppCompatActivity {
     @BindView(R.id.serviceManage_back)
     ImageView back;
     @BindView(R.id.serviceManage_list)
     ListView listView;
-    OrderAdapter orderAdapter;
-    private String[] options = {"编辑"};
+    ServiceAdapter serviceAdapter;
+    private String[] itemOptions = {"编辑", "新增"};
+
+
     private Activity mContext = ServiceManage.this;
     private OptionPicker picker;
 
@@ -29,9 +31,9 @@ public class ServiceManage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_service_manage);
         ButterKnife.bind(this);
-        picker = new OptionPicker(mContext, options);
-        orderAdapter = new OrderAdapter(null, mContext);
-        listView.setAdapter(orderAdapter);
+        picker = new OptionPicker(mContext, itemOptions);
+        serviceAdapter = new ServiceAdapter(mContext);
+        listView.setAdapter(serviceAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
