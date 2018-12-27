@@ -1,9 +1,8 @@
 package com.manage.demoapp.servicemanage.view;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -13,12 +12,11 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.qqtheme.framework.picker.LinkagePicker;
 import cn.qqtheme.framework.picker.OptionPicker;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.manage.demoapp.R;
 import com.manage.demoapp.helper.PickerHelper;
 import com.manage.demoapp.servicemanage.model.ServiceAdapter;
-
-import java.util.Arrays;
-import java.util.List;
+import com.manage.demoapp.servicemanage.model.ServiceConstants;
 
 public class ServiceManage extends AppCompatActivity {
     @BindView(R.id.serviceManage_back)
@@ -27,43 +25,15 @@ public class ServiceManage extends AppCompatActivity {
     ListView listView;
     @BindView(R.id.serviceManage_type)
     ImageView category;
-    ServiceAdapter serviceAdapter;
-    private String[] itemOptions = {"编辑"};
+    private ServiceAdapter serviceAdapter;
+    @BindView(R.id.serviceManage_new)
+    BootstrapButton add;
+    private String[] itemOptions = {"编辑", "删除"};
 
 
-    final LinkagePicker.DataProvider dataProvider = new LinkagePicker.DataProvider() {
-        @NonNull
-        @Override
-        public List<String> provideFirstData() {
-            return Arrays.asList("线上", "线下");
-        }
-
-        @NonNull
-        @Override
-        public List<String> provideSecondData(int firstIndex) {
-            switch (firstIndex) {
-                case 0:
-                    return Arrays.asList("1", "2");
-                case 1:
-                    return Arrays.asList("3", "4");
-                default:
-                    return Arrays.asList("5", "6");
-            }
-        }
-
-        @Nullable
-        @Override
-        public List<String> provideThirdData(int firstIndex, int secondIndex) {
-            return null;
-        }
-
-        @Override
-        public boolean isOnlyTwo() {
-            return true;
-        }
-    };
     private Activity mContext = ServiceManage.this;
     private OptionPicker picker;
+    private LinkagePicker linkagePicker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,7 +41,8 @@ public class ServiceManage extends AppCompatActivity {
         setContentView(R.layout.activity_service_manage);
         ButterKnife.bind(this);
         picker = new OptionPicker(mContext, itemOptions);
-        serviceAdapter = new ServiceAdapter(mContext);
+        linkagePicker = new LinkagePicker(mContext, ServiceConstants.dataProvider);
+        serviceAdapter = new ServiceAdapter(ServiceConstants.rescue(), mContext);
         listView.setAdapter(serviceAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
@@ -89,11 +60,71 @@ public class ServiceManage extends AppCompatActivity {
     }
 
     private void bindEvents() {
-
+        linkagePicker.setOnStringPickListener(new LinkagePicker.OnStringPickListener() {
+            @Override
+            public void onPicked(String first, String second, String third) {
+                switch (second) {
+                    case "救护":
+                        serviceAdapter.setList(ServiceConstants.rescue());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "精神慰藉":
+                        serviceAdapter.setList(ServiceConstants.spiritualConsolation());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "第三方转介服务":
+                        serviceAdapter.setList(ServiceConstants.thirdPartyService());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "老年人健康管理":
+                        serviceAdapter.setList(ServiceConstants.healthManage());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助洁":
+                        serviceAdapter.setList(ServiceConstants.clean());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助医":
+                        serviceAdapter.setList(ServiceConstants.medical());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助餐":
+                        serviceAdapter.setList(ServiceConstants.food());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助浴":
+                        serviceAdapter.setList(ServiceConstants.shower());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助行":
+                        serviceAdapter.setList(ServiceConstants.walk());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助乐":
+                        serviceAdapter.setList(ServiceConstants.entertainment());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "助急":
+                        serviceAdapter.setList(ServiceConstants.emergency());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                    case "代办":
+                        serviceAdapter.setList(ServiceConstants.agent());
+                        serviceAdapter.notifyDataSetChanged();
+                        break;
+                }
+            }
+        });
+        add.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(mContext, NewService.class));
+            }
+        });
         category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                LinkagePicker linkagePicker = new LinkagePicker(mContext, dataProvider);
+
                 linkagePicker.show();
             }
         });

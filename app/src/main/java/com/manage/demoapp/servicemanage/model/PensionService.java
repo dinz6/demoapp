@@ -55,4 +55,10 @@ public class PensionService {
     public void setFee(String fee) {
         this.fee = fee;
     }
+
+    public PensionService(String name, String detail, String fee) {
+        this.name = name;
+        this.detail = detail;
+        this.fee = fee;
+    }
 }
