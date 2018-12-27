@@ -11,12 +11,13 @@
                   android:orientation="vertical"
                   android:background="#5CACEE">
         <LinearLayout
-                android:background="?android:attr/selectableItemBackgroundBorderless"
-                android:clickable="true"
+
                 android:orientation="horizontal"
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
             <ImageView
+                    android:background="?android:attr/selectableItemBackgroundBorderless"
+                    android:clickable="true"
                     android:id="@+id/serviceManage_back"
                     android:layout_width="50dp"
                     android:layout_height="50dp"
