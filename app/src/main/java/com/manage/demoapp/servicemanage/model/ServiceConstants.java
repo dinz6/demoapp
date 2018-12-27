@@ -1,5 +1,9 @@
 package com.manage.demoapp.servicemanage.model;
 
+import android.support.annotation.NonNull;
+import android.support.annotation.Nullable;
+import cn.qqtheme.framework.picker.LinkagePicker;
+
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collections;
@@ -106,6 +110,38 @@ public class ServiceConstants {
         list.add(a);
         return list;
     }
+
+    public static LinkagePicker.DataProvider dataProvider = new LinkagePicker.DataProvider() {
+        @NonNull
+        @Override
+        public List<String> provideFirstData() {
+            return Arrays.asList("线上", "线下");
+        }
+
+        @NonNull
+        @Override
+        public List<String> provideSecondData(int firstIndex) {
+            switch (firstIndex) {
+                case 0:
+                    return Arrays.asList("救护", "精神慰藉", "第三方转介服务", "老年人健康管理");
+                case 1:
+                    return Arrays.asList("助洁", "助医", "助餐", "助浴", "助行", "助乐", "助急", "代办");
+                default:
+                    return new ArrayList<>();
+            }
+        }
+
+        @Nullable
+        @Override
+        public List<String> provideThirdData(int firstIndex, int secondIndex) {
+            return null;
+        }
+
+        @Override
+        public boolean isOnlyTwo() {
+            return true;
+        }
+    };
 
 
 

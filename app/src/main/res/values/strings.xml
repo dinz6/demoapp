@@ -1,6 +1,7 @@
 <resources>
-    <string name="app_name">demoapp</string>
-    <string name="back">返回键</string>
-    <string name="order_manage">工单管理</string>
-    <string name="service_manage">服务管理</string>
+	<string name="app_name">demoapp</string>
+	<string name="back">返回键</string>
+	<string name="order_manage">工单管理</string>
+	<string name="service_manage">服务管理</string>
+	<string name="new_service">新增服务</string>
 </resources>

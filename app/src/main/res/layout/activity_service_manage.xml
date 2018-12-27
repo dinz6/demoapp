@@ -40,7 +40,7 @@
                     android:layout_height="50dp"
                     android:src="@drawable/ic_category"
                     android:padding="10dp"
-                    android:contentDescription="@string/back"/>
+                    />
 
         </LinearLayout>
 
@@ -63,6 +63,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="新增"
+            android:id="@+id/serviceManage_new"
             app:bootstrapBrand="primary"
             app:bootstrapSize="lg"
             app:buttonMode="regular"
