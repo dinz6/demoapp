@@ -38,4 +38,18 @@ public class PickerHelper {
     public  interface CallBack{
         void onPicked(int position, String option);
     }
+
+    public static void show(OptionPicker picker,final CallBack callBack) {
+        picker.setOffset(3);
+        picker.setSelectedIndex(0); //默认选中项
+        picker.setTextSize(16);
+        picker.setCycleDisable(true); //选项不循环滚动
+        picker.setOnOptionPickListener(new OptionPicker.OnOptionPickListener() {
+            @Override
+            public void onOptionPicked(int position, String option) {
+                callBack.onPicked(position,option);
+            }
+        });
+        picker.show();
+    }
 }

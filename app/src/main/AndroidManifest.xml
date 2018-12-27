@@ -11,13 +11,16 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         <activity android:name=".workordermanage.view.WorkOrderManage">
+
+        </activity>
+        <activity android:name=".servicemanage.view.ServiceManage" >
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".servicemanage.view.ServiceManage" />
         <activity android:name=".organizationmanage.ui.OrganizationActivity"></activity>
     </application>
 
