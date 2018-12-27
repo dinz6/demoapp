@@ -9,43 +9,42 @@
               android:paddingTop="15dp" android:paddingBottom="15dp"
 >
 
-    <TextView android:layout_width="150dp" android:layout_height="match_parent"
-              android:background="#5CACEE" android:text="洗脚，修剪手脚指（趾）甲"
-              android:textSize="16sp"
-              android:layout_gravity="center" android:gravity="center"
-              android:layout_marginLeft="20dp"/>
-    <LinearLayout
-            android:layout_marginLeft="50dp"
-                  android:orientation="vertical"
-                  android:paddingRight="20dp"
-                  android:layout_width="match_parent" android:layout_height="wrap_content"
-                  android:layout_marginStart="20dp" android:paddingEnd="20dp" tools:ignore="RtlSymmetry">
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal" android:layout_marginBottom="5dp"
-        >
-            <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
-                      android:textSize="14sp"
-                      android:layout_gravity="end"
-                      android:gravity="start"
-                      android:text="先洗干净，按规范进行修剪，并打磨平滑。"/>
+	<TextView android:layout_width="150dp" android:layout_height="match_parent"
+	          android:background="#5CACEE" android:id="@+id/serviceItem_name"
+	          android:textSize="16sp"
+	          android:layout_gravity="center" android:gravity="center"
+	          android:layout_marginStart="20dp"/>
+	<LinearLayout
+			android:layout_marginLeft="50dp"
+			android:orientation="vertical"
+			android:paddingRight="20dp"
+			android:layout_width="match_parent" android:layout_height="wrap_content"
+			android:layout_marginStart="20dp" android:paddingEnd="20dp" tools:ignore="RtlHardcoded,RtlSymmetry">
+		<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+		              android:orientation="horizontal" android:layout_marginBottom="5dp"
+		>
+			<TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+			          android:textSize="14sp"
+			          android:layout_gravity="end"
+			          android:gravity="start"
+			          android:id="@+id/serviceItem_detail"/>
 
 
-        </LinearLayout>
-        <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:orientation="horizontal" android:layout_marginBottom="5dp"
-        >
-            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
-                      android:textSize="16sp"
-
-                      android:layout_gravity="end"
-                      android:gravity="end"
-                      android:text="20元/次"/>
-
-
-        </LinearLayout>
+		</LinearLayout>
+		<LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+		              android:orientation="horizontal" android:layout_marginBottom="5dp"
+		>
+			<TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+			          android:textSize="16sp"
+			          android:id="@+id/serviceItem_fee"
+			          android:layout_gravity="end"
+			          android:gravity="end"
+			/>
 
 
+		</LinearLayout>
 
-    </LinearLayout>
+
+	</LinearLayout>
 
 </LinearLayout>
