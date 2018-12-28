@@ -8,7 +8,6 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
-import android.widget.TextView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -46,7 +45,7 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                AppCompatCheckBox checkBox =view.findViewById(R.id.order_item_checkbox);
+                AppCompatCheckBox checkBox = view.findViewById(R.id.order_item_checkbox);
                 checkBox.setChecked(!checkBox.isChecked());
             }
         });
