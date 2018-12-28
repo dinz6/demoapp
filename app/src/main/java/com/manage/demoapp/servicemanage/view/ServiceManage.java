@@ -43,6 +43,7 @@ public class ServiceManage extends AppCompatActivity {
         picker = new OptionPicker(mContext, itemOptions);
         linkagePicker = new LinkagePicker(mContext, ServiceConstants.dataProvider);
         serviceAdapter = new ServiceAdapter(ServiceConstants.rescue(), mContext);
+
         listView.setAdapter(serviceAdapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override

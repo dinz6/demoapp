@@ -12,6 +12,7 @@ import butterknife.OnClick;
 import com.manage.demoapp.R;
 import com.manage.demoapp.organizationmanage.ui.OrganizationActivity;
 import com.manage.demoapp.servicemanage.view.ServiceManage;
+import com.manage.demoapp.staffmanage.view.StaffManage;
 import com.manage.demoapp.workordermanage.view.WorkOrderManage;
 
 public class Index extends AppCompatActivity {
@@ -43,6 +44,12 @@ public class Index extends AppCompatActivity {
             }
         });
     }
+        staff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Index.this, StaffManage.class));
+            }
+        });
 
     @OnClick(R.id.index_org)
     public void orgClick(){
