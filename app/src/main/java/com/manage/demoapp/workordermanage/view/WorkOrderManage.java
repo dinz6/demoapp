@@ -2,6 +2,8 @@ package com.manage.demoapp.workordermanage.view;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.ListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -19,7 +21,8 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
     NiceSpinner niceSpinner;
     @BindView(R.id.orderManage_list)
     ListView listView;
-
+    @BindView(R.id.orderManage_back)
+    ImageView back;
     private OrderAdapter orderAdapter;
 
     @Override
@@ -29,13 +32,19 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
         ButterKnife.bind(this);
         List<String> dataset = new LinkedList<>(Arrays.asList("工单号码", "身份证号", "居民姓名", "手机号码"));
         niceSpinner.attachDataSource(dataset);
-        orderAdapter = new OrderAdapter(null,this);
+        orderAdapter = new OrderAdapter(null, this);
         listView.setAdapter(orderAdapter);
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
     }
 
     @Override
     public void onSearchResult(List<Order> result) {
-        orderAdapter=new OrderAdapter(result,this);
+        orderAdapter = new OrderAdapter(result, this);
         listView.setAdapter(orderAdapter);
     }
 }

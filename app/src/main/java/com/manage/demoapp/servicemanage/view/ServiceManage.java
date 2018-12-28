@@ -60,6 +60,12 @@ public class ServiceManage extends AppCompatActivity {
     }
 
     private void bindEvents() {
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
         linkagePicker.setOnStringPickListener(new LinkagePicker.OnStringPickListener() {
             @Override
             public void onPicked(String first, String second, String third) {
