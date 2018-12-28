@@ -1,5 +1,6 @@
 package com.manage.demoapp.workordermanage.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -7,7 +8,9 @@ import android.widget.ImageView;
 import android.widget.ListView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.manage.demoapp.R;
+import com.manage.demoapp.staffmanage.view.SelectOrg;
 import com.manage.demoapp.workordermanage.model.Order;
 import com.manage.demoapp.workordermanage.model.OrderAdapter;
 import org.angmarch.views.NiceSpinner;
@@ -24,6 +27,8 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
     @BindView(R.id.orderManage_back)
     ImageView back;
     private OrderAdapter orderAdapter;
+    @BindView(R.id.orderManage_order)
+    BootstrapButton button;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +43,12 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
             @Override
             public void onClick(View v) {
                 finish();
+            }
+        });
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(WorkOrderManage.this, SelectOrg.class));
             }
         });
     }

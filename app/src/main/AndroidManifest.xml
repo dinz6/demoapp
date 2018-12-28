@@ -13,7 +13,6 @@
         <activity android:name=".workordermanage.view.WorkOrderManage">
         </activity>
         <activity android:name=".servicemanage.view.ServiceManage">
-
         </activity>
         <activity android:name=".organizationmanage.ui.OrganizationActivity"/>
         <activity android:name=".servicemanage.view.NewService">
@@ -24,6 +23,8 @@
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
+        </activity>
+        <activity android:name=".staffmanage.view.SelectOrg">
         </activity>
     </application>
 
