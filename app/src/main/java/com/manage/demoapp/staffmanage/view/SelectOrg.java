@@ -1,6 +1,8 @@
 package com.manage.demoapp.staffmanage.view;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.AdapterView;
@@ -78,9 +80,33 @@ public class SelectOrg extends AppCompatActivity {
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
+                    showNormalDialog(simpleStaffAdapter.getItem(position).getName());
                 }
             });
         }
+    }
+
+
+    private void showNormalDialog(String name) {
+        /* @setIcon 设置对话框图标
+         * @setTitle 设置对话框标题
+         * @setMessage 设置对话框消息提示
+         * setXXX方法返回Dialog对象，因此可以链式设置属性
+         */
+        final AlertDialog.Builder normalDialog =
+                new AlertDialog.Builder(this);
+//        normalDialog.setIcon(R.drawable.icon_dialog);
+        normalDialog.setTitle("确认派单");
+        normalDialog.setMessage("确定要派单给 " + name + " 吗?");
+        normalDialog.setPositiveButton("确定",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        SelectOrg.this.finish();
+                    }
+                });
+        normalDialog.setNegativeButton("取消", null);
+        // 显示
+        normalDialog.show();
     }
 }
