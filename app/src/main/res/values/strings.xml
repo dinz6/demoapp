@@ -5,6 +5,7 @@
     <string name="service_manage">服务管理</string>
     <string name="new_service">新增服务</string>
     <string name="select_org">派单</string>
+    <string name="staff_manage">人员管理</string>
     <string name="organization_manage">机构管理</string>
     <string name="search">搜索</string>
     <string name="organization_hint">请输入机构名称</string>
@@ -24,11 +25,4 @@
     <string name="grade">评分</string>
     <string name="id">编号：</string>
     <string name="upload">上传图片</string>
-	<string name="app_name">demoapp</string>
-	<string name="back">返回键</string>
-	<string name="order_manage">工单管理</string>
-	<string name="service_manage">服务管理</string>
-	<string name="new_service">新增服务</string>
-	<string name="select_org">派单</string>
-	<string name="staff_manage">人员管理</string>
 </resources>
