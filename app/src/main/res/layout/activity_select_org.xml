@@ -3,11 +3,9 @@
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" xmlns:app="http://schemas.android.com/apk/res-auto"
-        tools:context=".workordermanage.view.WorkOrderManage"
-        android:orientation="vertical"
-        android:background="#ffffff">
-
+        android:layout_height="match_parent"
+        tools:context=".staffmanage.view.SelectOrg"
+        android:orientation="vertical">
     <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
                   android:orientation="vertical" android:paddingBottom="10dp"
                   android:background="#5CACEE"
@@ -17,7 +15,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="50dp">
             <ImageView
-                    android:id="@+id/orderManage_back"
+                    android:id="@+id/selectOrder_back"
                     android:background="?android:attr/selectableItemBackgroundBorderless"
                     android:clickable="true"
                     android:layout_width="50dp"
@@ -27,7 +25,7 @@
                     android:contentDescription="@string/back"/>
 
             <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="match_parent"
-                      android:text="@string/order_manage"
+                      android:text="@string/select_org"
                       android:layout_gravity="center"
                       android:gravity="center"
                       android:textSize="16sp"
@@ -52,7 +50,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="45dp"
                     android:gravity="center_vertical"
-                    android:id="@+id/orderManage_searchType"
+                    android:id="@+id/selectOrg_type"
                     android:layout_marginRight="5dp" android:layout_marginEnd="5dp"/>
 
 
@@ -81,24 +79,12 @@
 
     </LinearLayout>
 
-    <ListView android:layout_width="match_parent" android:layout_height="0dp" android:layout_weight="1"
-              android:id="@+id/orderManage_list">
-    </ListView>
-
-    <com.beardedhen.androidbootstrap.BootstrapButton
-            android:id="@+id/orderManage_order"
-            android:layout_marginLeft="10dp"
-            android:layout_marginRight="10dp"
-            android:layout_marginBottom="10dp"
+    <ListView
+            android:id="@+id/selectOrg_list"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="派单"
-            app:bootstrapBrand="primary"
-            app:bootstrapSize="lg"
-            app:buttonMode="regular"
-            app:showOutline="false"
-            app:roundedCorners="true"
-    />
+            android:layout_height="match_parent">
+
+    </ListView>
 
 
 </LinearLayout>
