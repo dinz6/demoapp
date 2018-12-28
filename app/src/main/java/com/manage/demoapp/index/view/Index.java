@@ -9,6 +9,7 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.manage.demoapp.R;
 import com.manage.demoapp.servicemanage.view.ServiceManage;
+import com.manage.demoapp.staffmanage.view.StaffManage;
 import com.manage.demoapp.workordermanage.view.WorkOrderManage;
 
 public class Index extends AppCompatActivity {
@@ -37,6 +38,12 @@ public class Index extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 startActivity(new Intent(Index.this, ServiceManage.class));
+            }
+        });
+        staff.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(Index.this, StaffManage.class));
             }
         });
 
