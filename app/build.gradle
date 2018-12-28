@@ -35,4 +35,5 @@ dependencies {
         exclude group: 'com.android.support'
     }
     implementation 'com.nightonke:boommenu:2.1.1'
+    implementation 'cn.pedant.sweetalert:library:1.3'
 }
