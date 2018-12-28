@@ -54,10 +54,8 @@ public class OrganizationActivity extends AppCompatActivity implements Organizat
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.tool_bar);
         toolbar.setNavigationOnClickListener(v -> finish());
-
+        setSupportActionBar(toolbar);
         initData();
-
-
     }
 
     private void initData() {
@@ -72,7 +70,6 @@ public class OrganizationActivity extends AppCompatActivity implements Organizat
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu_search_view, menu);
-
         //找到searchView
         MenuItem searchItem = menu.findItem(R.id.action_search);
         searchView = (SearchView) searchItem.getActionView();
@@ -87,7 +84,10 @@ public class OrganizationActivity extends AppCompatActivity implements Organizat
 
             @Override
             public boolean onQueryTextChange(String s) {
-                System.out.println(s);
+                List<Organization> byOrgNameLike = App.dataMode.findByOrgNameLike(s);
+                orgs.clear();
+                orgs.addAll(byOrgNameLike);
+                adapter.notifyDataSetChanged();
                 return false;
             }
         });

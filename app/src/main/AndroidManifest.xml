@@ -23,15 +23,13 @@
             android:name=".servicemanage.view.ServiceManage"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
-            android:name=".organizationmanage.ui.OrganizationActivity"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:name=".organizationmanage.ui.OrganizationActivity" />
         <activity
             android:name=".servicemanage.view.NewService"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".index.view.Index">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
@@ -48,6 +46,8 @@
             android:name=".organizationmanage.ui.OrganizationEditActivity"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity android:name=".organizationmanage.ui.OrganizationAddActivity"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity android:name=".staffmanage.view.StaffManage"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
     </application>
 
