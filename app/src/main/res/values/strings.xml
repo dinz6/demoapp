@@ -5,4 +5,23 @@
     <string name="service_manage">服务管理</string>
     <string name="new_service">新增服务</string>
     <string name="select_org">派单</string>
+    <string name="organization_manage">机构管理</string>
+    <string name="search">搜索</string>
+    <string name="organization_hint">请输入机构名称</string>
+    <string name="price">价格：</string>
+    <string name="organization_type">类型：</string>
+    <string name="stars">评估星级：</string>
+    <string name="star_unit">星</string>
+    <string name="rmb_unit">元/天</string>
+    <string name="beds">床位数：</string>
+    <string name="organization_check">入住数：</string>
+    <string name="organization_free">空闲数：</string>
+    <string name="manager">负责人：</string>
+    <string name="contact_number">联系电话：</string>
+    <string name="address">地址：</string>
+    <string name="edit">修改</string>
+    <string name="delete">删除</string>
+    <string name="grade">评分</string>
+    <string name="id">编号：</string>
+    <string name="upload">上传图片</string>
 </resources>

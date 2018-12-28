@@ -31,7 +31,7 @@ public interface DataDao {
      * 根据id来查询一个机构
      * @param id
      */
-    void findOne(String id);
+    Organization findOne(String id);
 
     List<Organization> findAll();
 

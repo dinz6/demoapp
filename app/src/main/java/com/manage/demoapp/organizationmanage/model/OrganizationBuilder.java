@@ -1,7 +1,10 @@
 package com.manage.demoapp.organizationmanage.model;
 
+import com.luck.picture.lib.entity.LocalMedia;
 import com.manage.demoapp.App;
 import com.manage.demoapp.organizationmanage.model.enums.OrganizationType;
+
+import java.util.List;
 
 /**
  * Create by peter
@@ -77,6 +80,11 @@ public class OrganizationBuilder {
 
     public OrganizationBuilder setAssessmentResult(String assessmentResult) {
         this.organization.setAssessmentResult(assessmentResult);
+        return this;
+    }
+
+    public OrganizationBuilder setPicture(List<LocalMedia> list){
+        this.organization.setPicList(list);
         return this;
     }
 

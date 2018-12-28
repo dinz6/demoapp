@@ -4,6 +4,7 @@ import android.app.Application;
 import android.content.Context;
 import android.content.SharedPreferences;
 
+import com.manage.demoapp.organizationmanage.model.DataMode;
 import com.manage.demoapp.organizationmanage.model.OrganizationBuilder;
 
 import java.lang.ref.WeakReference;
@@ -18,13 +19,14 @@ public class App extends Application {
     public static final String ORGANIZATION_ID = "org_id";
     private static WeakReference<Context> context;
     private static SharedPreferences sp;
+    public  static DataMode dataMode;
     @Override
     public void onCreate() {
         super.onCreate();
         context = new WeakReference<>(this.getApplicationContext());
         sp = this.getSharedPreferences(APP, MODE_PRIVATE);
         initSharedPreferences();
-
+        dataMode = DataMode.getInstance();
 
     }
     public static SharedPreferences getSharedPreferences(){

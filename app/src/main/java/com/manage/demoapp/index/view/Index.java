@@ -7,7 +7,10 @@ import android.view.View;
 import android.widget.LinearLayout;
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
+
 import com.manage.demoapp.R;
+import com.manage.demoapp.organizationmanage.ui.OrganizationActivity;
 import com.manage.demoapp.servicemanage.view.ServiceManage;
 import com.manage.demoapp.workordermanage.view.WorkOrderManage;
 
@@ -39,7 +42,11 @@ public class Index extends AppCompatActivity {
                 startActivity(new Intent(Index.this, ServiceManage.class));
             }
         });
-
-
     }
+
+    @OnClick(R.id.index_org)
+    public void orgClick(){
+        startActivity(new Intent(this,OrganizationActivity.class));
+    }
+
 }

@@ -5,7 +5,7 @@
     android:layout_height="match_parent">
 
     <android.support.v7.widget.Toolbar
-        android:id="@+id/toolbar"
+        android:id="@+id/tool_bar"
         style="@style/AppTheme"
         android:layout_width="match_parent"
         android:layout_height="55dp"
@@ -15,7 +15,7 @@
         app:titleTextColor="@color/white" />
 
 
-    <ListView
+    <android.support.v7.widget.RecyclerView
         android:id="@+id/organization_content"
         android:layout_width="match_parent"
         android:layout_height="match_parent"

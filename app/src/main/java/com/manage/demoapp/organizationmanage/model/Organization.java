@@ -1,15 +1,21 @@
 package com.manage.demoapp.organizationmanage.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+import android.support.annotation.NonNull;
+
+import com.luck.picture.lib.entity.LocalMedia;
 import com.manage.demoapp.organizationmanage.model.enums.OrganizationType;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Create by peter
  * Date 2018-12-26  21:53
  * Description:
  */
-public class Organization {
-
-
+public class Organization implements Parcelable {
     private String id;
     private String name;
     private OrganizationType type;//类型
@@ -24,10 +30,40 @@ public class Organization {
     private int assessmentStars;//评估星级
     private String assessmentResult;//评估结果
 
+    private List<LocalMedia> picList = new ArrayList<>();
+
 
     Organization() {
     }
 
+
+    protected Organization(Parcel in) {
+        id = in.readString();
+        name = in.readString();
+        type = OrganizationType.values()[in.readInt()];
+        price = in.readDouble();
+        numBeds = in.readInt();
+        numOccupancies = in.readInt();
+        manager = in.readString();
+        contactNumber = in.readString();
+        address = in.readString();
+        description = in.readString();
+        assessmentStars = in.readInt();
+        assessmentResult = in.readString();
+        picList = in.createTypedArrayList(LocalMedia.CREATOR);
+    }
+
+    public static final Creator<Organization> CREATOR = new Creator<Organization>() {
+        @Override
+        public Organization createFromParcel(Parcel in) {
+            return new Organization(in);
+        }
+
+        @Override
+        public Organization[] newArray(int size) {
+            return new Organization[size];
+        }
+    };
 
     /**
      * 获取空闲的床位数
@@ -51,7 +87,7 @@ public class Organization {
         return name;
     }
 
-    void setName(String name) {
+    public void setName(String name) {
         this.name = name;
     }
 
@@ -67,7 +103,7 @@ public class Organization {
         return price;
     }
 
-    void setPrice(double price) {
+    public void setPrice(double price) {
         this.price = price;
     }
 
@@ -75,7 +111,7 @@ public class Organization {
         return numBeds;
     }
 
-    void setNumBeds(int numBeds) {
+    public void setNumBeds(int numBeds) {
         this.numBeds = numBeds;
     }
 
@@ -83,7 +119,7 @@ public class Organization {
         return numOccupancies;
     }
 
-    void setNumOccupancies(int numOccupancies) {
+    public void setNumOccupancies(int numOccupancies) {
         this.numOccupancies = numOccupancies;
     }
 
@@ -91,7 +127,7 @@ public class Organization {
         return manager;
     }
 
-    void setManager(String manager) {
+    public void setManager(String manager) {
         this.manager = manager;
     }
 
@@ -99,7 +135,7 @@ public class Organization {
         return contactNumber;
     }
 
-    void setContactNumber(String contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
@@ -107,7 +143,7 @@ public class Organization {
         return address;
     }
 
-    void setAddress(String address) {
+    public void setAddress(String address) {
         this.address = address;
     }
 
@@ -123,7 +159,7 @@ public class Organization {
         return assessmentStars;
     }
 
-    void setAssessmentStars(int assessmentStars) {
+    public void setAssessmentStars(int assessmentStars) {
         this.assessmentStars = assessmentStars;
     }
 
@@ -131,7 +167,37 @@ public class Organization {
         return assessmentResult;
     }
 
-    void setAssessmentResult(String assessmentResult) {
+   public void setAssessmentResult(String assessmentResult) {
         this.assessmentResult = assessmentResult;
+    }
+
+    public List<LocalMedia> getPicList() {
+        return picList;
+    }
+
+    public void setPicList(@NonNull List<LocalMedia> picList) {
+        this.picList.addAll(picList);
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel dest, int flags) {
+        dest.writeString(id);
+        dest.writeString(name);
+        dest.writeInt(type.ordinal());
+        dest.writeDouble(price);
+        dest.writeInt(numBeds);
+        dest.writeInt(numOccupancies);
+        dest.writeString(manager);
+        dest.writeString(contactNumber);
+        dest.writeString(address);
+        dest.writeString(description);
+        dest.writeInt(assessmentStars);
+        dest.writeString(assessmentResult);
+        dest.writeTypedList(picList);
     }
 }

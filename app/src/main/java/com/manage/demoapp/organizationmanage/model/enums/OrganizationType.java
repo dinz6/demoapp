@@ -1,5 +1,8 @@
 package com.manage.demoapp.organizationmanage.model.enums;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * Create by peter
  * Date 2018-12-26  21:59
@@ -17,8 +20,7 @@ public enum OrganizationType {
         this.value = value;
     }
 
-    public String getValue(){
-        return this.value;
+    public String getValue() {
+        return value;
     }
-
 }
