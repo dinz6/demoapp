@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="vertical"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:paddingLeft="20dp"
+              android:paddingRight="20dp"
+              android:paddingTop="15dp"
+              android:paddingBottom="15dp">
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="18sp"
+                  android:id="@+id/staffDetail_name"
+
+        />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:id="@+id/staffDetail_id"
+                  android:gravity="end"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:id="@+id/staffDetail_gender"
+        />
+
+
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:id="@+id/staffDetail_remark"
+                  android:textSize="18sp"
+        />
+
+
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:text="登陆账号"
+        />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:id="@+id/staffDetail_username"
+                  android:gravity="end"
+        />
+
+    </LinearLayout>
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:text="密码"
+        />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:id="@+id/staffDetail_password"
+                  android:text="******"
+                  android:gravity="end"
+        />
+
+        <ImageView android:layout_width="wrap_content" android:layout_height="match_parent"
+                   android:src="@drawable/ic_search"
+                   android:id="@+id/staffDetail_showPassword"
+        />
+
+    </LinearLayout>
+
+    <LinearLayout android:layout_width="match_parent" android:layout_height="wrap_content"
+                  android:orientation="horizontal">
+
+        <TextView android:layout_width="wrap_content" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:text="状态"
+        />
+        <TextView android:layout_width="0dp" android:layout_weight="1" android:layout_height="wrap_content"
+                  android:textSize="14sp"
+                  android:id="@+id/staffDetail_status"
+                  android:text="审核通过"
+                  android:textColor="#3CB371"
+                  android:gravity="end"
+        />
+
+    </LinearLayout>
+
+</LinearLayout>
