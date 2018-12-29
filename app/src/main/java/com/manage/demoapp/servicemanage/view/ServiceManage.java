@@ -4,10 +4,9 @@ import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.qqtheme.framework.picker.LinkagePicker;
@@ -15,6 +14,7 @@ import cn.qqtheme.framework.picker.OptionPicker;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.manage.demoapp.R;
 import com.manage.demoapp.helper.PickerHelper;
+import com.manage.demoapp.servicemanage.model.PensionService;
 import com.manage.demoapp.servicemanage.model.ServiceAdapter;
 import com.manage.demoapp.servicemanage.model.ServiceConstants;
 
@@ -45,28 +45,27 @@ public class ServiceManage extends AppCompatActivity {
         serviceAdapter = new ServiceAdapter(ServiceConstants.rescue(), mContext);
 
         listView.setAdapter(serviceAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                PickerHelper.show(picker, new PickerHelper.CallBack() {
-                    @Override
-                    public void onPicked(int position, String option) {
-
-                    }
-                });
+        listView.setOnItemClickListener((parent, view, position, id) -> PickerHelper.show(picker, (position1, option) -> {
+            switch (option) {
+                case "编辑":
+                    PensionService service = serviceAdapter.getItem(position);
+                    Intent intent = new Intent(ServiceManage.this, NewService.class);
+                    intent.putExtra("service", service);
+                    startActivity(intent);
+                    break;
+                case "删除":
+                    Toast.makeText(ServiceManage.this, "删除成功", Toast.LENGTH_LONG).show();
+                    break;
             }
-        });
+
+
+        }));
 
         bindEvents();
     }
 
     private void bindEvents() {
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        back.setOnClickListener(v -> finish());
         linkagePicker.setOnStringPickListener(new LinkagePicker.OnStringPickListener() {
             @Override
             public void onPicked(String first, String second, String third) {
@@ -122,18 +121,7 @@ public class ServiceManage extends AppCompatActivity {
                 }
             }
         });
-        add.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                startActivity(new Intent(mContext, NewService.class));
-            }
-        });
-        category.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                linkagePicker.show();
-            }
-        });
+        add.setOnClickListener(v -> startActivity(new Intent(mContext, NewService.class)));
+        category.setOnClickListener(v -> linkagePicker.show());
     }
 }

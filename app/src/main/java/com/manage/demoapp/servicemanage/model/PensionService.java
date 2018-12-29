@@ -1,6 +1,8 @@
 package com.manage.demoapp.servicemanage.model;
 
-public class PensionService {
+import java.io.Serializable;
+
+public class PensionService implements Serializable {
     private String type;//线上，线下
     private String aktType;//安康通类型
     private String name;//服务名称
