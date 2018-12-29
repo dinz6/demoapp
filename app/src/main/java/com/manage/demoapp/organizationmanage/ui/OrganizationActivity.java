@@ -53,8 +53,8 @@ public class OrganizationActivity extends AppCompatActivity implements Organizat
         setContentView(R.layout.activity_organization);
         ButterKnife.bind(this);
         Toolbar toolbar = findViewById(R.id.tool_bar);
-        toolbar.setNavigationOnClickListener(v -> finish());
         setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(v -> finish());
         initData();
     }
 
