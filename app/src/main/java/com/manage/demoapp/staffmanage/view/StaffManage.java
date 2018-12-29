@@ -1,18 +1,22 @@
 package com.manage.demoapp.staffmanage.view;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.qqtheme.framework.picker.OptionPicker;
 import com.beardedhen.androidbootstrap.BootstrapButton;
 import com.manage.demoapp.R;
 import com.manage.demoapp.helper.PickerHelper;
-import com.manage.demoapp.staffmanage.model.*;
+import com.manage.demoapp.staffmanage.model.OrgAdapter;
+import com.manage.demoapp.staffmanage.model.OrgConstants;
+import com.manage.demoapp.staffmanage.model.StaffConstants;
+import com.manage.demoapp.staffmanage.model.StaffDetailAdapter;
 import org.angmarch.views.NiceSpinner;
 
 import java.util.Arrays;
@@ -48,11 +52,11 @@ public class StaffManage extends AppCompatActivity {
         niceSpinner.attachDataSource(dataset);
         picker = new OptionPicker(this, itemOptions);
 
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                onBackPressed();
-            }
+        back.setOnClickListener(v -> onBackPressed());
+
+        add.setOnClickListener(v -> {
+            Intent intent = new Intent(StaffManage.this, CreateStaff.class);
+            startActivity(intent);
         });
 
         rebind(listView);
@@ -76,32 +80,29 @@ public class StaffManage extends AppCompatActivity {
     private void rebind(final ListView listView) {
         if (flag) {
             add.setVisibility(View.INVISIBLE);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    staffDetailAdapter = new StaffDetailAdapter(StaffConstants.staffDetails(), StaffManage.this);
-                    flag = false;
-                    listView.setAdapter(staffDetailAdapter);
-                    rebind(listView);
-                    List<String> dataset = new LinkedList<>(Arrays.asList("姓名", "工号"));
-                    niceSpinner.attachDataSource(dataset);
+            listView.setOnItemClickListener((parent, view, position, id) -> {
+                staffDetailAdapter = new StaffDetailAdapter(StaffConstants.staffDetails(), StaffManage.this);
+                flag = false;
+                listView.setAdapter(staffDetailAdapter);
+                rebind(listView);
+                List<String> dataset = new LinkedList<>(Arrays.asList("姓名", "工号"));
+                niceSpinner.attachDataSource(dataset);
 
-                }
             });
 
         } else {
             add.setVisibility(View.VISIBLE);
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                    PickerHelper.show(picker, new PickerHelper.CallBack() {
-                        @Override
-                        public void onPicked(int position, String option) {
-
-                        }
-                    });
+            listView.setOnItemClickListener((parent, view, position, id) -> PickerHelper.show(picker, (position1, option) -> {
+                switch (option) {
+                    case "编辑":
+                        Intent intent = new Intent(StaffManage.this, CreateStaff.class);
+                        intent.putExtra("staff",staffDetailAdapter.getItem(position));
+                        startActivity(intent);
+                        break;
+                    case "删除":
+                        Toast.makeText(StaffManage.this,"删除成功",Toast.LENGTH_LONG).show();
                 }
-            });
+            }));
         }
     }
 }

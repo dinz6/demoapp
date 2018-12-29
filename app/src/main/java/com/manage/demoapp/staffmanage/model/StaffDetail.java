@@ -1,6 +1,8 @@
 package com.manage.demoapp.staffmanage.model;
 
-public class StaffDetail {
+import java.io.Serializable;
+
+public class StaffDetail implements Serializable {
     private String name;
     private String id;
     private String gender;
@@ -75,7 +77,7 @@ public class StaffDetail {
     }
 
     public StaffDetail(String name, String id, String gender, String phone, String username, String password,
-                       String remark,String status) {
+                       String remark, String status) {
         this.name = name;
         this.id = id;
         this.gender = gender;
