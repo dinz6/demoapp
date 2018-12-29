@@ -1,16 +1,20 @@
 package com.manage.demoapp.servicemanage.view;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import cn.qqtheme.framework.picker.LinkagePicker;
+import com.beardedhen.androidbootstrap.BootstrapButton;
+import com.beardedhen.androidbootstrap.BootstrapEditText;
 import com.beardedhen.androidbootstrap.BootstrapWell;
 import com.manage.demoapp.R;
+import com.manage.demoapp.servicemanage.model.PensionService;
 import com.manage.demoapp.servicemanage.model.ServiceConstants;
 
 public class NewService extends AppCompatActivity {
@@ -20,9 +24,19 @@ public class NewService extends AppCompatActivity {
     TextView typeText;
     @BindView(R.id.newService_back)
     ImageView back;
-
+    @BindView(R.id.newService_title)
+    TextView title;
     private LinkagePicker linkagePicker;
+    @BindView(R.id.newService_name)
+    BootstrapEditText name;
 
+    @BindView(R.id.newService_content)
+    BootstrapEditText content;
+
+    @BindView(R.id.newService_fee)
+    BootstrapEditText fee;
+    @BindView(R.id.newService_save)
+    BootstrapButton save;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,15 +46,19 @@ public class NewService extends AppCompatActivity {
 
         linkagePicker = new LinkagePicker(this, ServiceConstants.dataProvider);
         bindEvents();
+
+        Intent intent = getIntent();
+        PensionService service = (PensionService) intent.getSerializableExtra("service");
+        if (service != null) {
+            title.setText("编辑");
+            initData(service);
+        } else {
+            title.setText("新增");
+        }
     }
 
     private void bindEvents() {
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
+        back.setOnClickListener(v -> finish());
         linkagePicker.setOnStringPickListener(new LinkagePicker.OnStringPickListener() {
             @SuppressLint("SetTextI18n")
             @Override
@@ -48,11 +66,17 @@ public class NewService extends AppCompatActivity {
                 typeText.setText(first + "-" + second);
             }
         });
-        type.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                linkagePicker.show();
-            }
+        type.setOnClickListener(v -> linkagePicker.show());
+        save.setOnClickListener(v -> {
+            Toast.makeText(NewService.this, "保存成功", Toast.LENGTH_LONG).show();
+            finish();
         });
+    }
+
+    private void initData(PensionService service) {
+        fee.setText(service.getFee());
+        content.setText(service.getDetail());
+        name.setText(service.getName());
+        typeText.setText(service.getType() + "-" + service.getAktType());
     }
 }
