@@ -88,7 +88,7 @@
                     app:bootstrapSize="sm">
 
                 <TextView
-                        android:id="@+id/newService_name"
+
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:gravity="start"
@@ -97,10 +97,12 @@
 
             </com.beardedhen.androidbootstrap.BootstrapWell>
 
-            <com.beardedhen.androidbootstrap.BootstrapEditText android:layout_marginLeft="10dp"
-                                                               android:layout_width="match_parent"
-                                                               app:roundedCorners="true"
-                                                               android:layout_height="match_parent"/>
+            <com.beardedhen.androidbootstrap.BootstrapEditText
+                    android:id="@+id/newService_name"
+                    android:layout_marginLeft="10dp"
+                    android:layout_width="match_parent"
+                    app:roundedCorners="true"
+                    android:layout_height="match_parent"/>
 
         </LinearLayout>
 
@@ -132,7 +134,8 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     app:roundedCorners="true"
-                    android:layout_height="match_parent"
+                    android:minHeight="50dp"
+                    android:layout_height="wrap_content"
                     android:maxLength="100"
 
 
@@ -169,8 +172,9 @@
                     android:layout_marginLeft="10dp"
                     android:layout_width="match_parent"
                     app:roundedCorners="true"
-                    android:layout_height="match_parent"
+                    android:layout_height="wrap_content"
                     android:maxLength="100"
+                    android:minHeight="50dp"
 
 
                     android:hint="100字以内描述"

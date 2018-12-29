@@ -4,10 +4,9 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.AppCompatCheckBox;
-import android.view.View;
-import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import com.beardedhen.androidbootstrap.BootstrapButton;
@@ -32,6 +31,8 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
     @BindView(R.id.orderManage_order)
     BootstrapButton button;
 
+    private int count = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -39,27 +40,26 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
         ButterKnife.bind(this);
         List<String> dataset = new LinkedList<>(Arrays.asList("工单号码", "身份证号", "居民姓名", "手机号码"));
         niceSpinner.attachDataSource(dataset);
-        orderAdapter = new OrderAdapter(null, this);
-        listView.setAdapter(orderAdapter);
-        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                AppCompatCheckBox checkBox = view.findViewById(R.id.order_item_checkbox);
-                checkBox.setChecked(!checkBox.isChecked());
-            }
+        listView.setOnItemClickListener((parent, view, position, id) -> {
+
+            AppCompatCheckBox checkBox = view.findViewById(R.id.order_item_checkbox);
+            checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+                if (isChecked) {
+                    count++;
+                } else {
+                    count--;
+                }
+            });
+            checkBox.setChecked(!checkBox.isChecked());
+
         });
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                finish();
-            }
-        });
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+        back.setOnClickListener(v -> finish());
+        button.setOnClickListener(v -> {
+            if (count > 0)
                 startActivity(new Intent(WorkOrderManage.this, SelectOrg.class));
-            }
+            else
+                Toast.makeText(WorkOrderManage.this, "请至少选择一个工单", Toast.LENGTH_LONG).show();
         });
     }
 
@@ -69,16 +69,11 @@ public class WorkOrderManage extends AppCompatActivity implements OrderManageVie
         listView.setAdapter(orderAdapter);
     }
 
-    private View getViewByPosition(int pos, ListView listView) {
-        final int firstListItemPosition = listView.getFirstVisiblePosition();
-        final int lastListItemPosition = firstListItemPosition + listView.getChildCount() - 1;
-
-        if (pos < firstListItemPosition || pos > lastListItemPosition) {
-            return listView.getAdapter().getView(pos, null, listView);
-        } else {
-            final int childIndex = pos - firstListItemPosition;
-            return listView.getChildAt(childIndex);
-        }
-
+    @Override
+    protected void onResume() {
+        super.onResume();
+        count = 0;
+        orderAdapter = new OrderAdapter(null, this);
+        listView.setAdapter(orderAdapter);
     }
 }

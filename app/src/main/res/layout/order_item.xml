@@ -4,12 +4,12 @@
               android:layout_height="wrap_content"
               android:orientation="horizontal"
               android:background="@drawable/corner_white_25radius"
-              android:descendantFocusability="blocksDescendants"
               android:layout_margin="5dp"
               android:paddingTop="15dp" android:paddingBottom="15dp">
 
     <android.support.v7.widget.AppCompatCheckBox
             android:focusable="false"
+            android:clickable="false"
             android:id="@+id/order_item_checkbox"
             android:layout_marginLeft="20dp"
             android:layout_width="wrap_content"
